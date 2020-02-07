@@ -1,19 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const pacmanELm = document.querySelector('.entity--pac');
+  // const pacmanELm = document.querySelector('.entity--pac');
+  // let xpos = 0;
+  // const TILE_SIZE = 85;
+  // let currentPosition = 0;
+  // let mouth = 0;
 
-  let xpos = 0;
-  let TILE_SIZE = 85
+  // document.addEventListener('keydown', (event) => {
+  //   if (event.key === 'ArrowRight') {
+  //     mouth = 85;
+  //     pacmanELm.style.backgroundPositionX = `${mouth}px`;
+  //   }
 
-  let currentPosition = 0;
-  currentPosition +=  TILE_SIZE;
+  //   currentPosition += TILE_SIZE;
+  //   pacmanELm.style.left = `${currentPosition}px`;
+
+  //   // console.log(`${currentPosition}px`);
+  // });
+
+  const pacmanEntity = new Pacman(0, true, document.querySelector('.entity--pac'))
 
   document.addEventListener('keydown', (event) => {
-    if(event.key === 'ArrowRight') {
-      pacmanELm.style.backgroundPositionX = `${xpos + TILE_SIZE}px`; 
+    if (event.key === 'ArrowRight') {
+      pacmanEntity.moveRight()
     }
-    currentPosition +=  TILE_SIZE;
-    pacmanELm.style.left = `${currentPosition}px`;
-    
-    console.log(`${currentPosition}px`);
   });
 })
