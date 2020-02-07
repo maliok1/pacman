@@ -16,18 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //   // console.log(`${currentPosition}px`);
   // });
-
+  const app = document.querySelector('#app');
   const pacmanEntity = new Pacman(0, 0, true, document.querySelector('.entity--pac'))
+
+  const stage = new Stage(17, 8.75);
+
+  stage.mount(app);
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
       pacmanEntity.move('right')
     } else if (event.key === 'ArrowLeft') {
       pacmanEntity.move('left')
-    }  else if (event.key === 'ArrowUp') {
+    } else if (event.key === 'ArrowUp') {
       pacmanEntity.move('up')
-    }  else if (event.key === 'ArrowDown') {
+    } else if (event.key === 'ArrowDown') {
       pacmanEntity.move('down')
-    } 
-  }); 
+    }
+  });
 })
