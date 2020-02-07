@@ -1,41 +1,80 @@
 class Pacman {
-  constructor(xpos, mouth, htmlElement, TILE_SIZE = 85) {
+  constructor(xpos, ypos, mouth, htmlElement, TILE_SIZE = 85) {
     this.TILE_SIZE = TILE_SIZE;
+    this.ypos = ypos;
     this.xpos = xpos;
     this.mouth = mouth;
     this.htmlElement = htmlElement;
   }
 
-  moveRight() {
-
-    this.mouth = !this.mouth;
-    if (this.mouth) {
-      this.htmlElement.style.backgroundPositionX = "0%";
-    } else {
-      this.htmlElement.style.backgroundPositionX = "100%";
+  move(arrow) {
+    if(arrow === 'right') {
+      this.mouth = !this.mouth;
+      if (this.mouth) {
+        this.htmlElement.style.backgroundPositionX = "0%";
+      } else {
+        this.htmlElement.style.backgroundPositionX = "100%";
+      }
+      this.xpos += this.TILE_SIZE;
+      this.htmlElement.style.left = this.xpos + "px";
     }
 
-    this.xpos += this.TILE_SIZE;
-    this.htmlElement.style.left = this.xpos + "px";
+    else if(arrow === 'left') {
+      this.mouth = !this.mouth;
+      if (this.mouth) {
+        this.htmlElement.style.backgroundPositionY = "25%";
+        this.htmlElement.style.backgroundPositionX = "0%";
+        } else {
+          this.htmlElement.style.backgroundPositionY = "25%";
+          this.htmlElement.style.backgroundPositionX = "100%";
+        }
 
-    // let mouth = 0;
-    // document.addEventListener('keydown', (event) => {
-    //   if (event.key === 'ArrowRight') {
-    //     mouth = 85;
-    //     pacmanELm.style.backgroundPositionX = `${mouth}px`;
-    //   }
-
-    //   currentPosition += TILE_SIZE;
-    //   pacmanELm.style.left = `${currentPosition}px`;
-
-    //   // console.log(`${currentPosition}px`);
-    // });
-
-    // let xpos = 0;
-    // const TILE_SIZE = 85;
-    // let currentPosition = 0;
+        this.xpos += this.TILE_SIZE;
+        this.htmlElement.style.right = this.xpos + "px";
+     } 
+     else if(arrow === 'up') {
+      this.mouth = !this.mouth;
+      if (this.mouth) {
+        this.htmlElement.style.backgroundPositionY = "95%";
+        this.htmlElement.style.backgroundPositionX = "0%";
+        } else {
+          this.htmlElement.style.backgroundPositionY = "95%";
+          this.htmlElement.style.backgroundPositionX = "100%";
+        }
+        this.ypos += this.TILE_SIZE;
+        this.htmlElement.style.bottom = this.ypos + "px";
+     } 
+     else if(arrow === 'down') {
+      this.mouth = !this.mouth;
+      if (this.mouth) {
+        this.htmlElement.style.backgroundPositionY = "60%";
+        this.htmlElement.style.backgroundPositionX = "0%";
+        } else {
+          this.htmlElement.style.backgroundPositionY = "60%";
+          this.htmlElement.style.backgroundPositionX = "100%";
+        }
+        this.ypos += this.TILE_SIZE;
+        this.htmlElement.style.top = this.ypos + "px";
+     } 
+    
+    
 
   }
+
+  // moveLeft() {
+  //   this.mouth = !this.mouth;
+  //   if (this.mouth) {
+  //     this.htmlElement.style.backgroundPositionY = "25%";
+  //     this.htmlElement.style.backgroundPositionX = "0%";
+  //   } else {
+  //     this.htmlElement.style.backgroundPositionY = "25%";
+  //     this.htmlElement.style.backgroundPositionX = "100%";
+  //   }
+
+  //   this.xpos += this.TILE_SIZE;
+  //   this.htmlElement.style.right = this.xpos + "px";
+    
+  // }
 
   update() {}
 }

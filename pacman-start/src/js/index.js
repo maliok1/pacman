@@ -17,11 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
   //   // console.log(`${currentPosition}px`);
   // });
 
-  const pacmanEntity = new Pacman(0, true, document.querySelector('.entity--pac'))
+  const pacmanEntity = new Pacman(0, 0, true, document.querySelector('.entity--pac'))
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
-      pacmanEntity.moveRight()
-    }
-  });
+      pacmanEntity.move('right')
+    } else if (event.key === 'ArrowLeft') {
+      pacmanEntity.move('left')
+    }  else if (event.key === 'ArrowUp') {
+      pacmanEntity.move('up')
+    }  else if (event.key === 'ArrowDown') {
+      pacmanEntity.move('down')
+    } 
+  }); 
 })
