@@ -17,11 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
   //   // console.log(`${currentPosition}px`);
   // });
   const app = document.querySelector('#app');
-  const pacmanEntity = new Pacman(0, 0, true, document.querySelector('.entity--pac'))
+  const stageDisplay = document.querySelector('.stage')
 
+  const pacmanEntity = new Pacman(0, 0, true, document.querySelector('.entity--pac'))
   const stage = new Stage(17, 8.75);
 
+
   stage.mount(app);
+  pacmanEntity.mount(stage.element);
+
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {

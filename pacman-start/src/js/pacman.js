@@ -63,4 +63,10 @@ class Pacman {
     this.htmlElement.style.left = this.xpos + "px";
     this.htmlElement.style.top = this.ypos + "px";
   }
+
+  mount(stageDisplay) {
+    this.update()
+    stageDisplay.appendChild(this.htmlElement)
+
+  }
 }
